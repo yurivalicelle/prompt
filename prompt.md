@@ -1,642 +1,801 @@
-# Configurador completo: Codex + Orca + Superpowers + Jev
+# Configurador completo de orquestração adaptativa — Codex + Orca + Superpowers + Jev
 
-Configure este ambiente para usar o Codex dentro do Orca com orquestração em todas as interações, delegação real, modelos escolhidos dinamicamente, Superpowers em toda a hierarquia e Jev integrado às decisões de coordenação.
+Configure ou reconcilie meu ambiente para operar com orquestração obrigatória em qualquer interação com o Codex, incluindo perguntas simples, pesquisa, redação, análise, planejamento e desenvolvimento de software.
 
-Este prompt é um configurador inicial e um reconciliador idempotente: deve funcionar numa máquina nova e quando executado novamente sobre instalações anteriores.
+Este é um pedido para executar a configuração necessária, verificar o resultado e entregar evidências. Deve funcionar tanto numa máquina nova quanto em reexecuções sobre uma instalação existente.
 
-Execute a configuração necessária dentro das permissões reais da sessão. Use executores para implementação. Preserve configurações saudáveis, correções já aplicadas, personalizações, credenciais, histórico e trabalho em andamento.
+Meu objetivo é melhorar qualidade, velocidade e uso dos recursos disponíveis. O coordenador permanece responsável pelo trabalho; agentes executam conteúdo; Superpowers orienta o método; Jev aconselha decisões delimitadas; controles verificam permissões, vínculos, viabilidade e conclusão.
 
-Prioridades:
-1. Cumprir o pedido corretamente, respeitando privacidade, permissões e evidências.
-2. Reduzir custo total, latência e retrabalho.
-3. Usar paralelismo e modelos menores quando forem suficientes.
-4. Manter a configuração compreensível, verificável e reversível.
+Não prometa economia de tokens, redução do limite semanal ou aceleração sem medição local.
 
-Não confunda instalado, configurado, confiado, autenticado, testado, operacional e benefício medido.
+## 1. Escopo e continuidade
 
-## 1. Escopo e resultado esperado
+Configure a infraestrutura e as políticas descritas aqui. Não retome automaticamente tarefas antigas nem execute operações com clientes, mensagens, publicações ou alterações de produção alheias à configuração.
 
-Configure:
+Prossiga com ações reversíveis e necessárias já autorizadas. Solicite informação ou aprovação somente quando houver uma dependência real que não possa ser resolvida pelo contexto.
 
-- Política persistente de orquestração para qualquer interação, com ou sem código.
-- Integração apropriada com as skills do Orca.
-- Superpowers oficial para coordenadores, supervisores, executores e revisores.
-- Seleção dinâmica de modelos a partir da fonte autorizada.
-- Snapshot compartilhado e imutável por tarefa.
-- Jev para aconselhamento de distribuição, decomposição, paralelismo, prioridade, revisão, escalonamento e continuidade.
-- Concorrência adaptativa, sem tamanho fixo de equipe.
-- Hooks compatíveis e mínimos.
-- Verificação, medição, documentação, backups e rollback seletivo.
+Preserve trabalhos, sessões, credenciais, projetos, journals e correções existentes. Não encerre processos interativos que possam conter trabalho não salvo sem autorização específica.
 
-Este pedido autoriza o trabalho de configuração pertinente. Não autoriza retomar tarefas antigas, reenviar mensagens, executar operações de clientes ou reproduzir efeitos externos para demonstrar funcionamento.
+Não trate este prompt como autorização para contornar restrições do ambiente, consentimentos obrigatórios ou requisitos de confiança de hooks.
 
-Não peça novamente autorização para ações já autorizadas. Quando faltar uma autorização real, prepare primeiro o resultado revisável e peça somente o necessário, explicando a origem da exigência.
+## 2. Descoberta do ambiente e contrato vigente
 
-## 2. Descoberta do ambiente
+Antes de alterar qualquer coisa, identifique:
 
-Antes de alterar arquivos, identifique:
+- Sistema operacional, shell, usuário e diretórios efetivos.
+- Instalações e versões reais do Codex e do Orca.
+- Binário, shim, launcher e perfil realmente utilizados.
+- CODEX_HOME efetivo de cada superfície relevante.
+- Configurações globais, de projeto, perfis e precedência entre elas.
+- AGENTS.md aplicáveis e integrações locais já existentes.
+- Skills, plugins, ferramentas nativas e mecanismos de delegação disponíveis.
+- Instalação, contrato, autenticação e estado operacional do Jev.
+- Limites e permissões observados da sessão atual.
 
-- Sistema operacional, arquitetura e shell.
-- Diretório atual, home do usuário e CODEX_HOME efetivo.
-- Executáveis e versões reais de Codex e Orca.
-- Uso por terminal do Orca, CLI independente, Desktop ou app-server.
-- Configurações globais, de projeto, perfis, argumentos e overrides.
-- Mecanismos de delegação e parâmetros realmente disponíveis.
-- Skills, plugins, hooks e componentes de orquestração existentes.
-- Runtimes e dependências necessárias.
-- Sessões ou workers ativos que possam ser afetados.
+Se existir a integração `orchestrator-mode`, leia integralmente seu `roles/GLOBAL-CONTRACT.md`, além dos módulos necessários. Não substitua o contrato completo por um resumo.
 
-Descubra caminhos; não fixe nome de usuário, unidade, diretório de cache ou versão.
+Falha de leitura, divergência ou incompatibilidade bloqueia o trabalho que dependa desse contrato. Preserve evidências e informe o impedimento específico.
 
-Se houver várias homes, confira cada uma separadamente quando estiver no escopo. Não presuma que a home encontrada é a utilizada pela sessão ativa.
+Reconheça que esta orquestração é uma integração local/customizada. Ela não possui autoridade nativa para modificar instruções superiores, permissões ou capacidades da plataforma.
 
-Não copie credenciais, sessões, bancos de confiança ou aprovações entre homes. Inspecione apenas os campos necessários, sem expor segredos.
+Descubra caminhos nesta máquina. Não copie nomes de usuário, IDs, hashes, snapshots ou caminhos absolutos de outra instalação.
 
-## 3. Bootstrap numa máquina nova
+## 3. Bootstrap de uma máquina nova
 
-Componentes ausentes são alvos da configuração. Não exija que um README, resolver, snapshot ou serviço personalizado já exista para permitir sua própria instalação.
+Na ausência comprovada da integração, execute um bootstrap mínimo, por meio de executores reais, para instalar ou configurar as dependências necessárias.
 
-Esta exceção de bootstrap vale somente para dependências comprovadamente ausentes. Ela não suspende instruções superiores, permissões ou gates já vigentes na sessão.
+Esse bootstrap:
 
-Durante o bootstrap:
+- Existe somente para dependências ausentes.
+- Não desativa contratos, trust ou gates que já existam.
+- Não transforma o coordenador em implementador.
+- Não cria identidades, catálogos ou capacidades fictícias.
+- Não afirma ter alterado retroativamente o modelo da sessão atual.
+- Termina quando a infraestrutura necessária estiver disponível.
 
-- Use delegação real disponível.
-- Descubra modelos e parâmetros aceitos pelo mecanismo atual.
-- Delegue instalação, implementação e documentação.
-- Registre quais garantias ainda dependem da configuração.
-- Trate os requisitos da arquitetura final como critérios de ativação.
+Use mecanismos suportados e fontes oficiais. Se não houver executor ou mecanismo adequado para uma etapa, informe o bloqueio dessa etapa e conclua o trabalho independente permitido.
 
-Não classifique um componente existente e defeituoso como “ausente” para contornar suas regras.
+## 4. Configuração idempotente e preservação
 
-Se faltar mecanismo de execução adequado, prepare o que for permitido, preserve evidências e informe a dependência. O coordenador não assume implementação por falta de executor.
+Implemente ou reutilize um configurador com descoberta, estado desejado, reconciliação e verificação.
 
-Não afirme que configurar um launcher alterou retroativamente o modelo ou as permissões da sessão atual.
+Se já existir um configurador saudável, amplie-o por migrações compatíveis. Não crie outro motor concorrente para resolver o mesmo problema.
 
-## 4. Fontes, compatibilidade e instalação
+Mantenha:
 
-Use documentação oficial e os guias correspondentes às versões instaladas.
+- Manifesto versionado dos componentes gerenciados.
+- Identificação de propriedade dos arquivos e blocos.
+- Histórico das migrações.
+- Detecção de alterações externas.
+- Plano de rollback por camada.
+- Resultado NOOP quando o estado já estiver correto.
 
-Fontes principais:
+Faça backup seletivo antes de modificar arquivos existentes. Registre o conteúdo anterior e as mudanças efetivas sem capturar segredos desnecessários.
 
-- Codex: documentação oficial OpenAI.
-- Orca: executável real e guias versionados das skills orchestration e orca-cli.
-- Superpowers: https://github.com/obra/superpowers
-- Jev/TypeSafe: documentação oficial e contrato local instalado.
-- Modelos: URL Artificial Analysis definida neste prompt.
+Use gravações seguras, validação antes da publicação e proteção contra execuções concorrentes quando aplicável.
 
-Não invente comandos, parâmetros, repositórios, endpoints ou suporte de ferramentas.
+Não sobrescreva arquivos inteiros para alterar um bloco. Não duplique hooks, skills, wrappers, entradas de perfil ou processos.
 
-Reutilize módulos compatíveis existentes. Se uma integração personalizada estiver ausente, delegue sua implementação com contrato, documentação e testes. Identifique-a como integração local, sem apresentá-la como recurso nativo do produto.
+Uma reexecução não deve resetar configurações saudáveis, apagar journals, repetir chamadas remotas já consumadas ou recriar tarefas.
 
-Atualize dependências quando necessário à compatibilidade; não reinstale tudo nem atualize componentes saudáveis indiscriminadamente.
+Não congele versões, hashes ou contagens de testes históricas como verdades permanentes. Preserve a finalidade e as regressões das correções existentes.
 
-## 5. Estado desejado e idempotência
+## 5. Orquestração universal
 
-Mantenha estado desejado versionado e manifestos contendo:
+Em cada turno que solicitar conteúdo, o coordenador deve delegar sua produção a pelo menos um executor real.
 
-- Componentes e origem.
-- Versões e compatibilidade.
-- Caminhos descobertos.
-- Ownership de arquivos e blocos.
-- Dependências.
-- Hashes anteriores e posteriores.
-- Migrações aplicadas.
-- Backups e rollback.
-- Critérios de aceitação.
-- Resultado das verificações.
+Isso se aplica a:
 
-Separe esse estado administrativo dos schemas de snapshot, Jev, hooks e runtime.
+- Código e configuração.
+- Perguntas simples.
+- Pesquisa e explicações.
+- Redação, revisão e tradução.
+- Planejamento e análise.
+- Novos pedidos e complementos em uma conversa existente.
 
-Classifique o estado observado como ausente, compatível, desatualizado, personalizado, divergente, parcialmente instalado ou bloqueado.
+Um executor pode ser reutilizado por uma nova atribuição explícita. A conclusão de um turno anterior não cobre conteúdo novo.
 
-Reexecução deve:
+O coordenador pode comunicar andamento, esclarecer necessidades, organizar o trabalho, verificar evidências e sintetizar resultados recebidos.
 
-- Resultar em no-op quando o estado já estiver correto.
-- Alterar somente diferenças necessárias.
-- Preservar conteúdo fora dos blocos gerenciados.
-- Evitar duplicação de hooks, políticas, perfis, agentes e motores.
-- Preservar correções locais válidas.
-- Não redefinir autenticação, confiança ou permissões.
-- Não apagar snapshots, recibos, journals ou histórico.
-- Não repetir chamadas externas já concluídas.
+Não use a obrigação de delegar para criar uma cadeia infinita. Um executor pode executar sua tarefa sem redelegar; nova divisão depende de benefício real.
 
-Uma configuração administrativamente idempotente ainda pode gerar uma nova captura quando uma nova coordenação independente exigir isso.
+Mantenha o fluxo proporcional à interação. Uma pergunta simples pode exigir apenas uma delegação curta e uma síntese. Não imponha planejamento extenso, supervisores ou múltiplas revisões a todas as respostas.
 
-## 6. Preservação de correções e rollback
+## 6. Limites do coordenador
 
-Não restaure arquivos inteiros a partir de templates antigos sem verificar diferenças e correções posteriores.
+O coordenador planeja, delega, acompanha, verifica e reporta.
 
-Use comparação de comportamento, ownership, versão, proveniência e testes. Hash diferente não significa automaticamente corrupção.
+Ele não deve:
 
-Faça backup seletivo antes de alterações. Publique mudanças de forma atômica quando possível e registre transações interrompidas.
+- Implementar conteúdo ou alterações substanciais.
+- Ler código em massa.
+- Assumir a execução porque parece mais rápido.
+- Fazer por shell, script, MCP, git ou outro mecanismo aquilo que seu papel proíbe diretamente.
+- Produzir o trabalho principal e depois criar uma delegação apenas para aparentar conformidade.
 
-Use exclusão mútua adequada em arquivos compartilhados. Lock residual exige investigação; não o apague automaticamente.
+Dentro do contrato vigente, pode:
 
-Prepare rollback por camada:
+- Ler instruções, contratos, configurações e evidências necessárias à coordenação.
+- Executar verificações pertinentes, testes, typecheck e inspeção de diff.
+- Usar git, gh, MCP e ferramentas de coordenação dentro do escopo autorizado.
+- Manter notas de coordenação nos diretórios próprios permitidos.
+- Fazer alterações triviais de configuração, limitadas a três linhas no total da tarefa, quando o contrato permitir.
 
-- Restaurar somente os itens daquela mudança.
-- Conferir hashes atuais e dos backups.
-- Recusar sobrescrever alterações posteriores não reconciliadas.
-- Preservar evidências, recibos, journals e sessões.
+Dividir uma alteração em várias operações não amplia esse limite.
 
-Não congele hashes antigos como requisito universal. Preserve a propriedade funcional da correção, permitindo evolução compatível e revisada.
+## 7. Papéis, supervisores e revisão independente
 
-## 7. Política universal de orquestração
+Reconheça papéis pela delegação e pelo estado reais.
 
-Instale uma política persistente aplicável em qualquer diretório e também em sessões sem sandbox e sem aprovações de comandos.
+- Coordenador raiz: responsável pelo objetivo e pela integração final.
+- Supervisor: agente delegado para coordenar um conjunto delimitado de subtarefas.
+- Executor: produz conteúdo e executa o trabalho atribuído.
+- Revisor independente: verifica sem participação material na solução revisada.
+- Responsável por handoff integral: assume o escopo transferido conforme o mecanismo utilizado.
 
-A política abrange perguntas simples, fatos, explicações, pesquisa, análise, comparação, recomendações, escrita, revisão, tradução, resumos, planejamento, organização, diagnóstico e código.
+Títulos, mensagens e IDs copiados não criam autoridade.
 
-Em cada turno com solicitação de conteúdo:
+Crie supervisores somente quando a redução da carga de coordenação, o paralelismo ou a especialização compensarem o custo e os slots ocupados.
 
-1. O coordenador entende o pedido e define o encaminhamento.
-2. Delega trabalho real a pelo menos um executor.
-3. Acompanha e verifica o resultado.
-4. Sintetiza e responde ao usuário.
+Cada supervisor precisa de mandato, entregas, limites, dependências e critério de encerramento. Sua conclusão local não equivale à conclusão global.
 
-Pode reutilizar executor por follow-up real. Uma conclusão anterior não cobre um pedido novo.
+Supervisores também respeitam os limites de coordenação. Não são executores disfarçados.
 
-Para interações pequenas, use uma delegação pequena e contexto mínimo. Não crie planejamento extenso, supervisores ou revisões redundantes por padrão.
+Exija revisão independente em segurança, autenticação, autorização, pagamentos, migrações, exclusão, criptografia e arquitetura importante.
 
-Comunicação estritamente operacional, acompanhamento e esclarecimentos necessários à delegação não exigem criar outro agente.
+Quem participou materialmente da autoria, implementação ou direção da solução não deve ser apresentado como revisor independente dela.
 
-Não use “é simples”, “é mais rápido”, “não envolve código” ou “já tenho contexto” como justificativa para o coordenador produzir sozinho o conteúdo solicitado.
+## 8. Modelos dinâmicos e fonte obrigatória
 
-## 8. Papéis e limites
+Não fixe nomes de modelos ou uma tabela permanente de modelos por função.
 
-### Coordenador raiz
-
-É a raiz única da tarefa. Planeja, delega, acompanha, verifica, integra e reporta.
-
-Pode executar diretamente:
-
-- Comunicação operacional e esclarecimentos.
-- Leitura de instruções e configurações necessárias à coordenação.
-- Inspeção de evidências.
-- Testes, lint, typecheck e git diff.
-- Notas e temporários autorizados em .codex/tmp/ e .codex/memory/.
-- Configuração de até três linhas no total por tarefa.
-- Git, gh, MCP e Orca CLI para coordenação, inspeção e operações autorizadas.
-
-Não implementa código nem lê código em massa. Não contorna esses limites usando shell, scripts, redirecionamentos, MCP ou fragmentação de alterações.
-
-### Supervisor
-
-Coordena uma frente realmente delegada e vinculada à mesma tarefa e snapshot.
-
-Seu mandato contém objetivo, entregáveis, recursos, decisões locais, limites, dependências, critérios de encerramento/escalonamento, benefício e custo.
-
-Mantém os limites do coordenador e delega conteúdo. Não cria nova raiz, não recaptura modelos por conta própria e não aprova conclusão global.
-
-Crie supervisores somente quando reduzirem carga de coordenação ou melhorarem o resultado. Preserve capacidade para executores úteis.
-
-### Executor
-
-É um subagente nativo realmente delegado ou worker Orca com Task/Dispatch válidos.
-
-Executa o escopo recebido e pode criar descendentes úteis. Não redelega apenas para cumprir formalidade nem cria recursão sem trabalho.
-
-### Revisor independente
-
-Não participou materialmente da autoria, direção ou implementação do trabalho revisado.
-
-É obrigatório para segurança, autenticação, autorização, pagamentos, migração, exclusão, criptografia e arquitetura importante. Nos demais casos, a revisão acompanha risco e método.
-
-Título ou autoatestação não provam independência.
-
-### Handoff
-
-Transfere responsabilidade conforme o pedido e o protocolo. Handoff integral não cria supervisão automática.
-
-## 9. Modelos dinâmicos
-
-Use exclusivamente esta URL para a lista de candidatos:
+A fonte obrigatória dos candidatos é esta URL exata:
 
 https://artificialanalysis.ai/models/recommend?intelligence=10&speed=10&cost=10&types=general%2Cagentic%2Ccoding%2Cmath%2Cinstruction-following%2Clong-context%2Cdocument-creation%2Cknowledge%2Clow-hallucination&ultralongcontext=true&reasoning=true&providers=openai&step=results
 
-Não altere os parâmetros. Registre fonte, data, valores observados e eventual divergência entre URL e interface.
+Em uma nova coordenação independente:
 
-Exija dez pares modelo/esforço distintos, com métricas válidas. Não complete resultados ausentes com modelos lembrados ou capturas antigas.
+1. Obtenha a captura atual pelo launcher ou shim suportado.
+2. Preserve a URL, os rótulos da fonte, os índices disponíveis e a proveniência.
+3. Identifique os dez pares modelo/esforço apresentados pela fonte.
+4. Escolha o maior índice de inteligência entre TODOS esses pares.
+5. Aplique os desempates documentados do resolver.
+6. Somente depois verifique disponibilidade e compatibilidade no catálogo real.
+7. Configure modelo e esforço nos parâmetros efetivos.
+8. Confira o contexto efetivamente aplicado.
 
-Para o coordenador raiz:
+Não filtre os candidatos por disponibilidade antes de selecionar o máximo.
 
-1. Compare o índice de inteligência entre todos os dez pares da fonte.
-2. Escolha o maior.
-3. Em empate, use menor Index Cost comparável, maior velocidade e posição na fonte.
-4. Somente depois valide o vencedor no catálogo real do runtime.
-5. Se estiver realmente indisponível, bloqueie o lançamento.
+Não substitua silenciosamente o vencedor por um segundo colocado, modelo “parecido”, alias presumido ou fallback fixo.
 
-Não filtre por disponibilidade antes de escolher o máximo. Não substitua o vencedor por segundo colocado ou fallback silencioso.
+Se o vencedor realmente não puder ser utilizado, interrompa o lançamento dependente e explique a causa. Diferencie indisponibilidade real de falha de normalização, captura ou mapeamento.
 
-Para executores, supervisores e revisores:
+Para executores, supervisores e revisores, selecione dinamicamente pares observados e suportados, adequados à tarefa e ao risco. Prefira o menor custo suficiente, considerando evidência de competência e custo total.
 
-- Escolha pares observados na captura e suportados no mecanismo.
-- Considere capacidade, dificuldade, contexto, ferramentas, risco, custo e latência.
-- Use o menor custo suficiente para cumprir o escopo.
-- Escalone por evidências de insuficiência, não pela existência de um modelo mais forte.
-- Não mantenha tabela permanente de nomes por tipo de tarefa.
+Use modelo e esforço explícitos na criação quando o mecanismo permitir. Verifique se perfis de papel, herança ou configurações posteriores substituem esses parâmetros.
 
-Configure modelo e esforço nos parâmetros reais de lançamento.
+Não presuma que preço de API equivale ao consumo do limite semanal da assinatura.
 
-Confira se perfis, arquivos de papéis ou overrides substituem a seleção. Não permita que um modelo fixo nesses arquivos anule silenciosamente o roteamento dinâmico.
+## 9. Normalização e preservação das correções do resolver
 
-Catálogo, parâmetros solicitados e modelo efetivo são evidências distintas.
+Preserve a correção que distingue rótulo da fonte e identificador de execução.
 
-## 10. Correção obrigatória de capitalização do esforço
+Normalize somente o campo de esforço da fonte para lowercase quando esse for o contrato do resolver, por exemplo `Max` para `max`.
 
-Preserve a correção do falso WINNER_UNAVAILABLE causado por diferenças como `Max` na fonte e `max` no catálogo.
+Use a mesma normalização na comparação e na verificação de unicidade semântica.
 
-O comportamento exigido é:
+Não normalize indiscriminadamente:
 
-- Preservar o rótulo original da fonte como evidência.
-- Normalizar somente o campo de esforço da fonte para minúsculas antes da comparação.
-- Validar o resultado contra os esforços realmente suportados.
-- Usar o mesmo normalizador na verificação de unicidade dos pares.
+- URLs.
+- Slugs de modelos.
+- Identificadores.
+- Rótulos preservados como evidência.
+- Valores desconhecidos que deveriam causar erro.
 
-Variantes como `Max` e `MAX` do mesmo modelo representam o mesmo par e não podem contar como candidatos distintos.
+Não converta esforço desconhecido em um esforço válido por conveniência.
 
-Não aplique lowercase indiscriminadamente a identificadores de modelos, URLs ou outros campos. Não use normalização para aceitar esforços desconhecidos ou mapear modelos por semelhança.
+Teste explicitamente diferenças de caixa, pares duplicados após normalização, dados incompletos e vencedor ausente do catálogo.
 
-Diferencie:
+Preserve a regra de selecionar o máximo antes de verificar disponibilidade. Corrigir um mapeamento não autoriza alterar essa política.
 
-- Divergência de capitalização resolvível.
-- Mapeamento ausente ou ambíguo.
-- Esforço desconhecido.
-- Esforço não suportado.
-- Vencedor ausente ou oculto.
-- Indisponibilidade remota posterior.
+## 10. Snapshot, identidade, launcher e retomada
 
-A correção não elimina bloqueios legítimos nem autoriza fallback.
-
-Em reexecuções, preserve esse comportamento e seus testes. Não reinstale uma versão antiga do resolver que reintroduza a comparação literal defeituosa.
-
-Modelo vencedor, hash, versão e quantidade de testes de uma correção anterior são evidência histórica; não são defaults permanentes.
-
-## 11. Snapshot e lançamento
-
-Em nova coordenação independente, obtenha captura atual antes do lançamento pela rota suportada.
-
-Todos os descendentes da mesma tarefa recebem:
+Descendentes de uma mesma coordenação reutilizam estas quatro referências reais:
 
 - ORCHESTRATION_SNAPSHOT_PATH
 - ORCHESTRATION_SNAPSHOT_ID
 - ORCHESTRATION_SNAPSHOT_HASH
 - ORCHESTRATION_TASK_ID
 
-Use identificadores reais e SHA256 dos bytes exatos do snapshot. Não invente vínculos.
+Verifique integridade, proveniência e vínculo. Nunca fabrique valores.
 
-O snapshot permanece imutável durante a tarefa. Descendentes e follow-ups não repetem a pesquisa da fonte sem necessidade de uma nova coordenação independente.
+Uma nova coordenação independente exige captura atual. Continuação legítima e descendentes reutilizam os vínculos válidos da tarefa; filho, ferramenta ou mensagem de status não exigem nova captura.
 
-Quando a ferramenta nativa não aceitar variáveis de ambiente, transmita explicitamente as quatro referências no contexto mínimo e confira o vínculo.
+Novos processos devem usar o launcher propagador suportado. Workers supervisionados pelo Orca devem usar o adaptador específico previsto pela integração, como `dynamic/orca-worker.ps1` quando existente.
 
-Use modelo e esforço explícitos por parâmetros suportados. Quando overrides exigirem contexto isolado ou recortado, use essa modalidade.
+Determine o contexto pai pelos registros canônicos da sessão, home e CODEX_THREAD_ID. Variáveis isoladas ou texto no prompt não são prova suficiente.
 
-Confirme lançamento e contexto efetivo. Texto na mensagem, herança presumida ou sucesso do wrapper não provam o modelo utilizado.
-
-Não tente trocar retroativamente o modelo de uma sessão aberta. Prepare o lançamento correto para a próxima sessão aplicável e informe essa limitação.
-
-## 12. Permissões, resume e Desktop
-
-Preserve o modo parental efetivamente observado.
-
-Quando o usuário iniciar legitimamente com:
+Preserve o uso autorizado de:
 
 `--dangerously-bypass-approvals-and-sandbox`
 
-a rota propagadora deve conservar esse modo quando suportado e autorizado.
+Propague esse modo somente quando sua autorização e presença no contexto efetivo estiverem comprovadas. Ausência de informação não significa bypass. Um contexto restrito não pode ser elevado por inferência.
 
-Isso não autoriza:
+BYPASS não equivale a confiança de hooks.
 
-- Instalar bypass como padrão global.
-- Elevar um pai restrito.
-- Ignorar confiança de hooks.
-- Remover gates de negócio.
-- Inventar autoridade Task/Dispatch.
-- Contornar restrições superiores.
+Preserve a semântica suportada de `codex resume`. Quando houver vínculo preservado com uma tarefa, reutilize-o corretamente. Não invente Task ID, não vincule uma sessão diferente e não reintroduza exigências obsoletas já corrigidas.
 
-Confira identidade canônica, CODEX_HOME e último contexto parental. Ausência, ambiguidade ou conflito não permitem presumir bypass.
+Trate CLI no Orca, Desktop, app-server e lançamentos diretos conforme suas capacidades reais. Um shim de terminal não intercepta universalmente todas essas superfícies.
 
-Diferencie:
+SnapshotOnly prepara delegação nativa; não autoriza worker externo nem comprova inferência. PrepareOnly também deve ser descrito conforme seu alcance real.
 
-- Resume independente: valida a sessão exata e prepara nova coordenação/captura.
-- Continuação explícita da mesma tarefa: preserva tarefa, snapshot e hash.
-- SnapshotOnly: prepara referências para delegação nativa.
-- PrepareOnly: prepara um lançamento externo estrito.
+Se uma superfície não suportar a integração, informe a limitação específica sem falsificar compatibilidade ou destruir os caminhos que funcionam.
 
-Resume normal não deve exigir TaskId manual apenas por uma regra obsoleta do wrapper. Preserve validações de identidade e use o contrato atual.
+## 11. Concorrência adaptativa
 
-SnapshotOnly não inicia processo, não prova inferência, não muda permissões e não autoriza worker externo. Perfil Desktop não reproduzível pela CLI continua bloqueando o lançamento externo, sem impedir preparação nativa suportada.
+Não estabeleça um teto artificial permanente de três agentes.
 
-Não duplique sessões ativas nem encerre terminais com trabalho sem autorização pertinente.
+Também não interprete “sem limite fixo” como recursos infinitos ou obrigação de criar muitos agentes.
 
-## 13. Concorrência e profundidade adaptativas
+Determine quantidade, simultaneidade e profundidade a partir de:
 
-Não fixe a equipe em três agentes nem estabeleça teto artificial permanente para total de agentes ou profundidade.
-
-Dimensione o trabalho por:
-
-- Unidades independentes.
-- Caminho crítico.
-- Dependências.
-- Disputas por arquivos e recursos.
-- Necessidade de revisão.
-- Benefício esperado.
-- Custo de contexto e coordenação.
-- Capacidade técnica observada.
+- Subtarefas realmente independentes.
+- Caminho crítico e dependências.
+- Slots efetivamente disponíveis.
+- Limites do backend e da conta.
+- Recursos locais.
+- Contenção de arquivos, navegadores e ferramentas.
+- Custo de lançamento, contexto, integração e revisão.
 
 Diferencie:
 
-- Agentes criados ao longo da tarefa.
-- Threads abertas simultaneamente.
-- Agentes executando.
-- Agentes aguardando ou concluídos.
-- Profundidade.
-- Slots livres efetivos.
+- Total de agentes criados.
+- Agentes ativos simultaneamente.
+- Threads abertas.
+- Profundidade da hierarquia.
+- Capacidade configurada.
+- Capacidade observada.
 
-Ver apenas três agentes simultâneos não prova um limite universal.
+Confira o esquema da versão instalada. Não transplante configurações de outra API.
 
-Descubra limites no runtime, host, perfil, configuração de projeto e argumentos efetivos.
+Quando suportado, `agents.max_concurrent_threads_per_session` controla threads de agentes simultaneamente abertas e exclui a raiz; `agents.max_threads` pode existir como alias legado. Verifique a semântica efetiva antes de editar.
 
-Valide na versão instalada os parâmetros de concorrência. A documentação atual apresenta `agents.max_concurrent_threads_per_session` e o alias legado `agents.max_threads`. Não transplante `max_concurrent_subagents` da Agents API para o arquivo de configuração da CLI.
+Não confunda essas opções com `max_concurrent_subagents` de outras interfaces.
 
-Se um limite configurável impedir trabalho útil, ajuste-o com justificativa, suporte comprovado e verificação posterior. Não use zero, negativos, números arbitrariamente enormes ou “unlimited” sem semântica documentada.
+Não use zero, valores enormes ou chaves inventadas como sinônimo de ilimitado.
 
-Uma capacidade técnica finita não é uma equipe de tamanho fixo.
+Reutilize agentes adequados, use filas e execute em ondas quando necessário. Não burle limites abrindo processos externos indiscriminadamente.
 
-Quando faltar capacidade, use fila, ondas e reaproveitamento. Supervisores também consomem slots; evite ocupar toda a capacidade com gestores.
+Se observar apenas três agentes simultâneos, investigue a causa. Não conclua automaticamente que há um limite artificial nem prometa superá-lo sem suporte real.
 
-Não crie agentes sem trabalho apenas para demonstrar quantidade. Não contorne limites usando outro mecanismo ou duplicando executores.
+## 12. Delegação, contexto e Orca
 
-## 14. Contrato de delegação e Orca
-
-Cada delegação deve conter:
+Toda atribuição deve conter contexto suficiente e mínimo:
 
 - Objetivo e resultado esperado.
-- Papel real.
-- Contexto mínimo suficiente.
-- Decisões e restrições relevantes.
-- Dependências e recursos compartilhados.
-- Diretório e arquivos sob responsabilidade, quando houver.
-- Snapshot e tarefa.
-- Skills e suas localizações.
-- Critérios de aceitação.
-- Verificações pertinentes.
-- Formato do retorno.
+- Escopo e limites.
+- Arquivos ou recursos relevantes.
+- Dependências.
+- Restrições e permissões.
+- Modelo/esforço ou configuração efetiva.
+- Referências reais da tarefa quando aplicáveis.
+- Skills pertinentes.
+- Verificações e formato do retorno.
 
-Exija resumo, alterações, verificações executadas, resultados, riscos, limitações e pendências.
+Não presuma herança automática de contexto. Também não copie toda a conversa quando um pacote menor for suficiente.
 
-Paralelize partes independentes. Serialize dependências, edições conflitantes e recursos exclusivos. Prefira follow-up para correções do mesmo trabalho.
+Distribua tarefas independentes em paralelo. Serialize dependências reais e alterações concorrentes no mesmo recurso.
 
-Use:
+Use delegação nativa para trabalho interno do Codex.
 
-- Subagentes nativos para subtarefas internas sem dependência da identidade ou estado do Orca.
-- Skill orchestration para coordenação supervisionada de Task/Dispatch, DAGs, perguntas, decisões e resultados.
-- Skill orca-cli para recursos gerenciados pelo Orca e handoffs integrais.
+Para estado, identidade e coordenação supervisionada do Orca, use a skill `orchestration` e o guia compatível com a versão instalada.
 
-Não substitua silenciosamente uma execução solicitada no Orca por execução nativa.
+Para worktrees, terminais, recursos gerenciados e handoff integral, use `orca-cli` conforme seu contrato.
 
-No Orca, confira identificadores reais, mensagens pendentes, reconhecimentos e resultados. Timeout, aceitação de dispatch ou terminal aberto não provam início ou conclusão do trabalho.
+Não substitua silenciosamente uma operação Orca solicitada por outro mecanismo.
 
-Após encerramento aceito, dê ao terminal o destino previsto: reutilização, retenção solicitada ou liberação.
+No Orca, exija Task/Dispatch atuais e os vínculos previstos. Processe mensagens antes do ack e confirme o destino do terminal após aceite.
 
-## 15. Superpowers em toda a hierarquia
+Timeout, ausência de resposta ou falta de evidência não autorizam duplicação de worker, retry, release ou conclusão.
+
+## 13. Superpowers em toda a hierarquia
 
 Use Superpowers oficial:
 
 https://github.com/obra/superpowers
 
-Descubra versão e caminho instalados. Instale ou reconcilie por mecanismo confiável quando necessário.
+Descubra a instalação real, sua versão e os locais de descoberta. Preserve instalações saudáveis e evite cópias concorrentes.
 
-O coordenador aplica using-superpowers e as skills pertinentes. Supervisores, executores e revisores também aplicam as skills pertinentes ao próprio escopo.
+O coordenador aplica `using-superpowers` e identifica as skills pertinentes ao tipo de interação.
 
-A exceção SUBAGENT-STOP dispensa somente o bootstrap correspondente; não dispensa as demais skills aplicáveis.
+Supervisores, executores e revisores também aplicam as skills pertinentes ao próprio mandato.
 
-Transmita localização, versão observada, referências e restrições aos descendentes.
+Quando houver SUBAGENT-STOP, interprete-o conforme a versão instalada: dispensa de bootstrap não significa dispensa de skills relevantes ou de seus gates.
 
-Use o processo orientado por Superpowers para identificar:
+Não edite skills oficiais para remover exigências. Não crie um selecionador permanente que substitua o mecanismo oficial de descoberta.
 
-- Qual fluxo atende à interação.
-- O que é determinístico.
-- Onde existe uma escolha útil para Jev.
-- Qual trabalho pode ser paralelo.
-- Qual revisão é necessária.
-- Quando continuar ou escalar.
+Use Superpowers para organizar o método: compreensão, planejamento, execução, depuração, revisão e verificação conforme a tarefa.
 
-Superpowers fornece instruções; o agente continua responsável pelo método. Não crie um supervisor permanente apenas para selecionar skills.
+Não aplique automaticamente TDD, worktrees ou processos de desenvolvimento a perguntas e redações que não precisam deles.
 
-Respeite gates pertinentes e as instruções do usuário. Não altere skills oficiais para suprimir exigências.
+O agente que conduz o fluxo identifica os pontos em que conselho do Jev pode ajudar. Jev pode aconselhar entre alternativas válidas, mas não decide que uma skill obrigatória deixou de ser obrigatória.
 
-Não carregue todas as skills por padrão nem imponha testes de software a texto e pesquisa.
+## 14. Base científica e limites da analogia
 
-## 16. Jev como aconselhamento de coordenação
+Registre uma fundamentação curta, separada das instruções carregadas em todo turno.
 
-Jev deve participar das decisões que podem melhorar o resultado, preservando o controle do orquestrador.
+Considere:
 
-A classificação inicial de cada tarefa substantiva é obrigatória conforme o contrato vigente, antes da execução de conteúdo. Durante bootstrap, aplique a exceção limitada a componentes ausentes descrita anteriormente.
+- Kahneman: Thinking, Fast and Slow.
+- Tversky e Kahneman: Judgment under Uncertainty: Heuristics and Biases.
+- Kahneman: Maps of Bounded Rationality.
+- Kahneman e Klein: Conditions for Intuitive Expertise.
+- Kahneman e Lovallo: Timid Choices and Bold Forecasts.
+- Tversky e Kahneman: The Framing of Decisions and the Psychology of Choice.
+- SOFAI: Fast, slow, and metacognitive thinking in AI.
+- Fast and Slow Planning.
+- System-1.x: Learning to Balance Fast and Slow Planning with Language Models.
+- Agents Thinking Fast and Slow: A Talker–Reasoner Architecture.
 
-O coordenador prepara alternativas e restrições mínimas. Planejamento aprofundado, pesquisa e implementação continuam delegados.
+Diferencie trabalhos originais, versões da mesma pesquisa e estudos independentes.
 
-Use Jev para aconselhar, quando houver escolha real:
+Use RouteLLM e FrugalGPT como evidência complementar sobre roteamento e custo, sem atribuir ao livro uma influência central não demonstrada.
 
-- Decomposição do trabalho.
-- Agrupamento de unidades.
-- Distribuição de modelos e esforços.
-- Paralelismo viável.
-- Prioridade e ordem.
-- Necessidade e distribuição de revisão.
-- Uso de supervisores.
-- Continuidade, redistribuição ou escalonamento.
+Registre o material efetivamente consultado. Um excerto do livro não equivale à leitura integral.
 
-Não consulte Jev para confirmar uma ação já determinada por regras ou evidências.
+Sistemas 1 e 2 são inspiração funcional. Não trate Jev, um modelo maior, esforço alto ou uma cadeia de agentes como equivalentes científicos diretos dos sistemas humanos.
 
-Reutilize o contrato instalado. Para novos aconselhamentos compatíveis, use v2 com grupos e dimensões pertinentes. Não confunda versão do DTO com versão do snapshot.
+Não assuma que vieses humanos se transferem de forma idêntica ao Jev.
 
-Fluxo:
+Não importe tolerância experimental a violações, planos parciais ou recompensas negativas para permissões, segurança ou conclusão.
 
-1. Preparar DTO genérico minimizado e alternativas finitas.
-2. Executar a validação local.
-3. Reutilizar recibo válido ou avaliar quando realmente permitido e necessário.
-4. Validar o recibo.
-5. Conferir viabilidade no controlador.
-6. Executar a decisão permitida.
-7. Reavaliar somente diante de mudança material comprovada.
+As adaptações propostas aqui precisam de avaliação local. Não anuncie que a configuração reproduz arquiteturas treinadas dos papers.
 
-Use os entrypoints reais de decision.py validate/evaluate e control.py validate/next/reevaluate quando existentes e compatíveis.
+## 15. Divisão funcional entre ferramentas, Jev e agentes
 
-Jev aconselha. O controlador confere modelos, esforços, contexto, ferramentas, permissões, dependências, conflitos e slots atuais.
+Separe três funções, sem exigir três agentes ou três chamadas:
 
-Jev não concede autorização, não lança agentes e não substitui verificações determinísticas.
+1. Verificação e controle determinísticos.
+2. Conselho tipado e delimitado do Jev.
+3. Produção de conteúdo, investigação e raciocínio aberto por agentes.
 
-## 17. Reuso, privacidade e falhas de Jev
+Ferramentas e controladores verificam fatos computáveis, contratos, viabilidade, vínculos, permissões e transições.
 
-Raiz, supervisores e executores identificam pontos úteis de Jev dentro de seus escopos.
+Jev aconselha escolhas entre alternativas finitas, scores e decisões compatíveis com suas primitivas reais.
 
-Compartilhe decisões válidas quando o contrato permitir. Não faça uma chamada por filho, ferramenta, status, edição ou transição determinística.
+Agentes produzem texto, código, planos, pesquisa, interpretações e revisões.
 
-Pergunte somente dimensões que possam alterar a próxima decisão. Opção fixada pelo método é restrição local, sem confiança inventada.
+O coordenador mantém a responsabilidade por escolhas discricionárias e pelo resultado final. O controlador não transforma toda escolha em uma decisão determinística.
 
-Não repita alternativas no body. Respeite Choice, Score e Noul conforme seus contratos. Probabilidade Noul não é um campo separado de confidence.
+Não use Jev para escrever conteúdo, gerar código, inventar evidências, justificar uma decisão com texto que a API não produz ou autorizar efeitos externos.
 
-Envie somente estado genérico minimizado e revisado. Não envie conteúdo bruto, dados de clientes, documentos, credenciais, caminhos ou identificadores internos. IDs, hashes e proveniência ficam locais fora do body quando assim exigir o contrato.
+Não peça ao Jev algo que software pode verificar diretamente com maior precisão e menor custo.
 
-Filtros automáticos não comprovam anonimização.
+## 16. Jev inicial obrigatório e consultas adicionais
 
-Preserve journals falhos ou incertos. Não faça retry automático, troque task/schema/evento, remova histórico ou crie outro escopo para escapar de uma falha.
+Preserve a classificação inicial obrigatória pelo Jev, fora do UserPromptSubmit, conforme o contrato instalado.
 
-Mudança material exige campos alterados e proveniência verificável. Migração v1→v2 exige originais conferidos; não converta recibos.
+Se houver recibo válido do mesmo escopo, reutilize-o conforme as regras existentes.
 
-Recuperação manual exige protocolo próprio e autorização humana específica. Este configurador não autoriza recuperar chamadas históricas.
+Antes de conteúdo dependente dessa classificação, o coordenador pode preparar somente o enquadramento operacional, as alternativas iniciais suportadas e o DTO minimizado, usando contexto já observado.
 
-Reutilize flow.py, supervision_v2.py e outros componentes compatíveis em vez de criar motores duplicados.
+Não crie uma dependência circular exigindo que um executor faça o planejamento substantivo antes da classificação necessária para autorizá-lo.
 
-## 18. Sete otimizações opcionais
+Depois dessa etapa, executores podem elaborar alternativas substantivas para decisões posteriores.
 
-Avalie e implemente os módulos úteis por executores, conforme contrato e suporte reais. Comece em shadow quando a qualidade ainda não estiver demonstrada.
+Use as interfaces reais, incluindo quando existentes:
 
-Cada módulo precisa de entrada, saída, privacidade, falhas, fallback, testes e medição.
+- `decision.py validate/evaluate` v2.
+- `control.py validate/next/reevaluate`.
 
-### 18.1 Sugestão de skills
+Não invente comandos, campos ou schemas.
 
-Jev pode selecionar entre descrições mínimas de skills pertinentes. O agente lê e aplica as selecionadas, preservando skills obrigatórias e explicitamente solicitadas.
+Separe claramente:
 
-Não afirme redução de contexto se o catálogo continuar injetado pelo runtime.
+- Classificação inicial obrigatória.
+- Validações locais sem API.
+- Reuso de recibo válido.
+- Consultas posteriores opcionais e justificadas.
 
-### 18.2 Priorização de arquivos
+Uma nova chamada ao Jev deve corresponder a uma decisão permitida que possa mudar a próxima ação. Não consulte por filho, ferramenta, status ou transição de rotina.
 
-Faça descoberta determinística com rg/rg --files. Jev pode ordenar candidatos usando metadados mínimos e aliases.
+Reutilize os componentes instalados de fluxo e supervisão quando adequados. Não crie controladores duplicados.
 
-Ranking não comprova irrelevância dos demais arquivos nem substitui cobertura necessária.
+## 17. Ampliação do papel consultivo do Jev
 
-### 18.3 Pré-triagem de revisão
+Configure suporte, conforme o contrato real permitir, para aconselhar:
 
-Use perguntas binárias pertinentes às regras e riscos do projeto. Um roteiro de sete perguntas pode ser usado quando justificado, sem transformar essa quantidade em regra universal.
+- Divisão entre alternativas de trabalho.
+- Prioridade de subtarefas prontas.
+- Paralelismo útil e ordem de execução.
+- Distribuição entre executores disponíveis.
+- Modelo e esforço dos descendentes.
+- Necessidade e escopo de supervisão.
+- Prioridade e profundidade de revisão opcional.
+- Próxima evidência a obter.
+- Encaminhamento de casos novos ou ambíguos.
+- Escalonamento.
+- Continuidade, redistribuição e encerramento.
 
-Triagem direciona revisão; não aprova automaticamente código, segurança ou conclusão.
+Prefira decidir no nível do subproblema relevante. Um pedido pode conter etapas simples e etapas exigentes; um único rótulo para o prompt inteiro não precisa governar toda a execução.
 
-### 18.4 Regras de acesso e testes
+Essa granularidade não significa consulta a cada passo. Agrupe decisões compatíveis quando o contrato permitir e reutilize decisões válidas.
 
-Mantenha matriz entre ator, recurso, ação, regra e resultado esperado.
+Jev recebe somente alternativas admissíveis e informação suficiente para distingui-las. O controlador confirma que a recomendação continua viável antes da execução.
 
-Confirme testes positivos e negativos, execução e autorização no backend. Existência de um arquivo de teste não comprova cobertura.
+A recomendação não pode:
 
-Jev pode apontar ambiguidades e prioridades quando o contrato suportar.
+- Alterar a regra do modelo máximo da raiz.
+- Eliminar delegação obrigatória.
+- Remover revisão independente exigida.
+- Ampliar permissões.
+- Transferir autoridade de outra tarefa.
+- Transformar uma falha em sucesso.
 
-### 18.5 Retenção de contexto e compactação
+## 18. Preparação correta de cada decisão
 
-Jev pode ajudar a selecionar itens a preservar. Um executor redige o resumo.
+Para cada decisão material, registre de forma curta:
 
-Preserve objetivos, restrições, autorizações relevantes, decisões, pendências e referências de evidência.
+- Qual ação poderá mudar.
+- Quais são as alternativas.
+- Quais evidências as diferenciam.
+- Quais dados estão ausentes.
+- Qual é o custo de um erro.
+- Qual verificação será usada.
+- Qual é o escopo de validade e reuso.
 
-Não substitua o compressor interno sem API suportada e integração demonstrada. Checkpoint não equivale a substituição da compactação.
+Evite substituir a pergunta difícil por uma pergunta mais fácil:
 
-### 18.6 Testes de navegador
+- Plausibilidade não equivale a correção.
+- Familiaridade não equivale a competência.
+- Similaridade não equivale a autorização.
+- Relevância de um arquivo não equivale a cobertura.
+- Presença de um teste não equivale a teste adequado.
+- Confiança não equivale a evidência de conclusão.
 
-Jev pode escolher entre ações observadas e permitidas numa sessão de teste.
+Use critérios observáveis e alternativas que representem o problema real.
 
-Use perfis realmente autenticados, recursos isolados e validação de backend. Simular um perfil por texto não cria permissões.
+Trate “nenhuma alternativa adequada” ou incerteza conforme o schema e o consumidor suportados. Use `no_match` somente com a semântica documentada. Não invente `no_judgment` ou saídas que o controlador não entende.
 
-O controlador valida identidade, ação e escopo antes da execução.
+Não reformule sucessivamente a mesma pergunta para obter uma resposta desejada, aumentar artificialmente a confiança ou contornar um journal falho.
 
-### 18.7 Fiscalização de regras antes de alterações
+## 19. Usos adicionais a avaliar
 
-Use checks determinísticos para regras objetivas e Jev somente em ambiguidades pertinentes.
+Avalie estes módulos conforme benefício e suporte:
 
-Não adote “80%” como limiar universal calibrado. Não transforme um score em autorização ou garantia de segurança.
+### Seleção da próxima evidência
 
-Verifique quais ferramentas e rotas são realmente interceptadas. Um hook não cobre automaticamente toda forma de alteração.
+Jev pode ordenar buscas, documentos ou verificações candidatas quando há ambiguidade.
 
-Falha de otimização opcional permite o fluxo normal autorizado. Falha de gate obrigatório não pode virar aprovação.
+O agente decide e coleta a evidência. Dados ausentes continuam ausentes até serem obtidos.
 
-Não trate demonstrações de vídeo, tempos anunciados ou resultados de outra ferramenta como prova de desempenho neste ambiente.
+### Fronteiras de competência
 
-## 19. Persistência e hooks
+Use histórico verificável para identificar classes em que uma rota funciona bem, falha ou ainda é desconhecida.
 
-Instale a política no mecanismo global suportado e confira precedência, overrides de projeto, limites de tamanho e necessidade de nova sessão.
+Novidade, mudança de distribuição ou evidência insuficiente podem justificar revisão ou escalonamento.
 
-Mantenha o núcleo global curto. Coloque contratos detalhados em arquivos referenciados, evitando repetir este configurador inteiro em cada turno.
+### Classes de referência
 
-UserPromptSubmit deve ser um lembrete curto e determinístico de papel, delegação e snapshot.
+Use casos comparáveis para estimar esforço, probabilidade de retrabalho e custo total.
 
-Ele não deve:
+Jev pode aconselhar a seleção da classe; cálculos ficam em software. Não transforme poucos exemplos em estatística confiável.
 
-- Pesquisar a web.
-- Consultar Jev.
+### Revisão por critérios
+
+Separe dimensões como correção, completude, evidência e risco. Jev pode priorizar o que merece investigação.
+
+O parecer final depende das verificações e da revisão exigidas.
+
+### Continuidade orientada por progresso
+
+Avalie se a próxima ação tem chance plausível de resolver uma pendência concreta. Identifique loops e trabalho duplicado.
+
+Não considere esforço já gasto uma justificativa suficiente para continuar.
+
+### Verificação opcional
+
+Jev pode ajudar a escolher verificações adicionais de maior utilidade. As verificações obrigatórias permanecem fixadas pelo contrato e pela tarefa.
+
+Para cada módulo, documente hipótese, integração, dados necessários, métrica e rollback.
+
+Se não existir correspondência fiel no DTO atual, não comprima artificialmente a decisão em campos inadequados. Prepare um adaptador separado, versionado e testado antes de qualquer ativação.
+
+## 20. Tratamento dos sete usos originalmente considerados
+
+### 1. Retenção de contexto
+
+Jev pode aconselhar quais itens explícitos preservar. Um agente produz o resumo.
+
+Mantenha objetivos, restrições, decisões, evidências, pendências, vínculos e falhas relevantes.
+
+Não afirme substituir a compactação nativa sem um ponto de integração real e validado. Não permita apagar informações necessárias à continuidade.
+
+### 2. Documentação e testes de regras
+
+Construa uma relação verificável entre regras, implementação e testes.
+
+Jev pode sinalizar lacunas semânticas; ferramentas conferem existência e execução.
+
+Inclua casos positivos e negativos. Permissões precisam ser verificadas no mecanismo que as aplica, não apenas na interface.
+
+### 3. Seleção de skills
+
+Jev pode aconselhar entre candidatas pertinentes já descobertas.
+
+Preserve descoberta oficial, skills obrigatórias e gates. Não envie todos os arquivos de skills em cada interação.
+
+### 4. Exploração de arquivos
+
+Use primeiro buscas determinísticas, como `rg`.
+
+Jev pode ordenar candidatos minimizados. Executores abrem os arquivos pertinentes e verificam cobertura antes de concluir.
+
+### 5. Primeiro filtro de revisão
+
+Jev pode classificar prioridade e risco de mudanças.
+
+Isso não equivale a aprovação automática, revisão independente ou permissão de merge.
+
+### 6. Testes de navegador
+
+Jev pode selecionar entre ações observadas e permitidas.
+
+O operador valida estado, perfil, destino e autorização. Não invente elementos da interface.
+
+Respeite exclusividade de controle quando necessária e teste permissões reais, incluindo recusas esperadas.
+
+### 7. Verificação de regras antes de editar
+
+Use primeiro regras determinísticas para proibições objetivas.
+
+Avaliação semântica pelo Jev exige ponto de interceptação real, política documentada para falhas e limiar validado por categoria.
+
+Não adote confiança de 80% como regra universal nem use o Jev para liberar uma edição proibida.
+
+Ative somente a cobertura comprovada. Não apresente um hook parcial como proteção de todas as formas de edição.
+
+## 21. Estado atual e comunicação durante a execução
+
+Mantenha um estado local compacto e versionado com:
+
+- Objetivo.
+- Responsáveis.
+- Dependências.
+- Resultados e fontes.
+- Momento das observações.
+- Pendências.
+- Condições de invalidação.
+
+Mensagens operacionais de progresso podem acompanhar a execução.
+
+Uma entrega substantiva só pode usar resultados cujas próprias dependências estejam satisfeitas e atuais. Uma parte independente pode ser entregue sem esperar uma pendência irrelevante.
+
+Não use um resultado antigo como se refletisse o estado atual.
+
+Não crie um agente permanente de conversa apenas para imitar Talker–Reasoner. Jev não é o componente que redige respostas.
+
+Mudanças de objetivo, evidência, recursos ou autorização devem atualizar o estado e seguir as regras de reavaliação aplicáveis.
+
+## 22. Confiança, calibração e aprendizado operacional
+
+Diferencie:
+
+- Score segundo uma rubrica.
+- Probabilidade de uma alternativa.
+- Confiança retornada pela API.
+- Acurácia observada.
+- Autorização.
+- Evidência de conclusão.
+
+Em Choice e Score, `confidence` não deve ser interpretada automaticamente como probabilidade de a resposta estar correta.
+
+Noul possui semântica própria. Não misture suas probabilidades com scores ou confiança de outras primitivas.
+
+Os limiares locais de conclusão são critérios contratuais, não garantias estatísticas de correção.
+
+Mantenha avaliações por tipo de decisão, domínio, versão de modelo, prompt, rubrica e integração.
+
+Considere quantidade e representatividade das observações. Sem dados adequados, registre UNKNOWN.
+
+Registre sucessos, falhas, falsos positivos, falsos negativos, timeouts e retrabalho.
+
+Feedback pode melhorar rubricas e políticas versionadas. Isso não significa treinamento automático dos pesos do Jev.
+
+Não reduza gates existentes para acomodar um resultado de baixa confiança.
+
+## 23. Custo total, reflexão e valor da informação
+
+Meça custo e latência de ponta a ponta, incluindo:
+
+- Preparação e minimização.
+- Consultas ao Jev.
+- Lançamento de agentes.
+- Contexto transmitido.
+- Esperas.
+- Execução.
+- Verificação.
+- Revisão.
+- Integração.
+- Retrabalho.
+
+Não conclua que o fluxo melhorou porque uma chamada isolada ficou mais rápida.
+
+Quando houver dados suficientes, compare o valor esperado de informação adicional com seu custo. Sem dados, registre hipóteses e incerteza.
+
+Não presuma que mais raciocínio, debate, supervisores ou ciclos de autocorreção melhoram o resultado.
+
+Raciocínio preliminar pode ser necessário para escolher uma verificação. Antes de aceitar a conclusão, exija evidência externa pertinente: testes, fontes, cálculos, documentos ou observação real, conforme a tarefa.
+
+Evite repetir autorreflexão sem nova evidência ou hipótese útil.
+
+Revise decisões passadas em lotes autorizados quando isso puder melhorar a política. Não crie chamadas extras ou automações de aprendizado contínuo sem necessidade e autorização.
+
+Retire trabalho opcional quando não houver benefício demonstrável. Preserve todas as obrigações do contrato.
+
+## 24. Privacidade, recibos e falhas
+
+Siga o contrato instalado do Jev e sua política de minimização.
+
+Use DTO genérico, minimizado e atestado quando exigido.
+
+Não envie ao Jev:
+
+- Credenciais.
+- Identificadores pessoais ou de clientes.
+- Documentos brutos.
+- Conteúdo confidencial desnecessário.
+- Paths, hashes, IDs de tarefas e outros vínculos que devem permanecer locais.
+
+Preserve a semântica necessária à decisão. Se a minimização impedir uma avaliação válida, não fabrique evidência nem envie o material proibido.
+
+Mantenha autenticação no mecanismo seguro previsto, como a variável apropriada quando exigida. Nunca imprima, copie para prompts ou comite a chave.
+
+Reuso de recibo exige escopo e proveniência válidos. Semelhança com outro caso não transfere aprovação ou autoridade.
+
+Mudança material precisa de proveniência e do procedimento documentado.
+
+Journal falho, incerto ou tentativa parcialmente consumada bloqueia retry ou troca de task, schema e evento usada como contorno.
+
+Não converta fixture, replay, migração ou reavaliação local em uma nova tentativa de API disfarçada.
+
+Recuperação manual deve seguir o procedimento e a autorização específica exigidos.
+
+Não migre registros apagando os originais nem marque falhas antigas como sucesso.
+
+## 25. Persistência, hooks e carregamento econômico
+
+Mantenha um núcleo global curto no AGENTS.md, apontando para o contrato completo e módulos apropriados.
+
+Preserve a leitura integral exigida pelo contrato. Não injete este prompt de instalação, os papers e todo o histórico em cada turno.
+
+Configure UserPromptSubmit, quando suportado, somente como lembrete estrutural.
+
+O hook não deve:
+
+- Navegar na web.
+- Consultar o Jev.
 - Criar agentes.
-- Capturar modelos.
-- Armazenar prompts brutos.
-- Declarar autoridade ou referências inexistentes.
+- Resolver modelos.
+- Inventar snapshots.
+- Classificar conteúdo por conta própria.
+- Armazenar prompts desnecessariamente.
 
-Instalação, confiança, carregamento e execução do hook são provas separadas.
+Use configuração e saída compatíveis com a versão instalada.
 
-Não edite banco de confiança nem instale bypass de confiança. Preserve decisões legítimas já existentes.
+Diferencie:
 
-Confira schemas e eventos da versão instalada. Não use parâmetros não suportados como se bloqueassem ações.
+1. Hook instalado.
+2. Hook confiável.
+3. Hook executado na sessão relevante.
 
-PostToolUse não desfaz efeitos. Processos já iniciados, write_stdin e rotas especializadas podem exigir controles próprios.
+Não modifique bases internas de trust nem trate bypass como consentimento de hooks.
 
-Preserve hooks locais, Stop, identidade, aprovação exata, Humanizer, canais e checkpoints pertinentes. Não declare cobertura universal sem teste das rotas.
+Verifique cada CODEX_HOME efetivo. Configuração em um home não prova cobertura de outro.
 
-## 20. Verificação, medição e entrega
+Preserve Stop/Jev, identidade, aprovação exata, canais, checkpoints e regras de Humanizer ou entrega já existentes.
 
-Execute verificações proporcionais ao que foi alterado. Não repita testes sem nova mudança, falha ou dúvida relevante.
+Mapeie a cobertura real de eventos e ferramentas. Não afirme interceptar caminhos que não foram verificados.
 
-Verifique, conforme aplicável:
+## 26. Pilotos e verificação da configuração
 
-- Instalação nova em ambiente isolado.
-- Reexecução compatível como no-op.
-- Migração incremental e preservação de personalizações.
-- Recuperação de transação administrativa interrompida.
-- Backup e rollback seletivo.
-- Delegação real de tarefas com e sem código.
-- Supervisão quando útil.
-- Modelo e esforço solicitados versus efetivos.
-- Precedência de perfis e configurações.
-- Propagação de permissões e snapshot.
-- Resume independente, continuação e SnapshotOnly.
-- Integração Orca e tratamento de timeout.
-- Jev, reuso, privacidade e preservação de falhas.
-- Instalação, confiança e execução dos hooks.
-- Limites configurados versus capacidade demonstrada.
+Comece medindo decisões já suportadas de distribuição, prioridade, revisão e continuidade.
 
-Inclua regressões do resolver para:
+Introduza novos módulos separadamente, inicialmente em shadow: registram propostas para comparação, sem produzir efeitos operacionais.
 
-- `Max`, `MAX` e `max`.
-- Unicidade semântica após normalização.
-- Esforços desconhecidos ou indisponíveis.
-- Vencedor ausente ou oculto.
-- Mapeamento inválido.
+Para cada piloto:
+
+- Defina hipótese e critérios de promoção e retirada.
+- Preserve os mesmos gates no baseline.
+- Separe desenvolvimento, histórico de roteamento e avaliação reservada.
+- Evite vazamento dos casos de avaliação.
+- Inclua casos comuns, ambíguos, novos e falhas relevantes.
+- Compare tarefas equivalentes.
+- Registre versões e configuração.
+- Meça qualidade, severidade dos erros, custo, latência e retrabalho.
+- Informe incerteza.
+- Faça ablação apenas de componentes opcionais.
+- Tenha rollback por módulo.
+
+Não ative todos os experimentos somente porque aparecem na literatura.
+
+Execute verificações adequadas para:
+
+- Instalação inicial.
+- Reexecução idempotente e NOOP.
+- Backup, migração e rollback.
+- Conflitos de configuração.
+- Propagação de permissões e identidade.
+- Modelo/esforço efetivos.
+- Snapshot e vínculos.
+- Retomada de sessões.
+- Delegação nativa.
+- Task/Dispatch e execução Orca quando disponíveis.
+- Jev, reuso e falhas, sem consumir retries proibidos.
+- Hook instalado, trust e execução.
+- Delegação de pedidos com e sem código.
+
+No resolver, inclua regressões para:
+
+- Esforço com diferença de caixa.
+- Duplicidade após normalização.
+- Valor desconhecido.
+- Captura incompleta.
 - URL divergente.
-- Fonte incompleta.
-- Escolha do máximo antes de verificar disponibilidade.
-- Ausência de substituição por segundo colocado.
+- Vencedor ausente.
+- Seleção do máximo antes da disponibilidade.
+- Proibição de substituição silenciosa.
 
-Demonstre concorrência com trabalho útil. Use mais de três agentes simultâneos quando capacidade e benefício permitirem; não fabrique carga apenas para atingir uma contagem.
+Verifique concorrência usando trabalho útil e capacidade realmente disponível. Não crie agentes descartáveis apenas para ultrapassar três.
 
-SnapshotOnly bem-sucedido comprova preparação da captura. Não comprova lançamento, inferência, quota ou operação completa.
+Depois de checks adequados passarem, repita ou amplie testes somente por nova mudança, falha ou dúvida material.
 
-Para conclusão operacional, respeite os gates reais. No contrato atual de Jev, COMPLETE exige checks, revisão e evidências atuais, confiança mínima de 0,5 e residual máximo de 0,25. Em v2, considere o mínimo das questões Choice/Score realmente perguntadas; final continuity-only mantém progress e residual.
+## 27. Conclusão e entrega
 
-Esses limiares são política do contrato, não prova universal de calibração.
+Preserve os critérios atuais de COMPLETE.
 
-Reutilize ferramentas de medição existentes. Registre preparação, Jev, spawn, espera, execução, revisão, integração e retrabalho.
+Quando exigidos pelo contrato vigente, COMPLETE depende cumulativamente de:
 
-Compare qualidade e custo total. Ausência de medida é desconhecida, não zero. Replay não é execução live. Preço de API não representa automaticamente consumo do limite semanal do Codex.
+- Objetivo implementado ou entrega integral atendida.
+- Verificações pertinentes atuais.
+- Revisão exigida concluída.
+- Evidências vinculadas ao estado atual.
+- Ausência de falhas impeditivas.
+- Confiança de pelo menos 0,5.
+- Residual de no máximo 0,25.
+- Progress e residual na continuidade final.
+- Agregação de confiança conforme o controlador, incluindo o mínimo aplicável às respostas Choice/Score solicitadas.
 
-Não prometa aceleração ou economia sem evidência comparável.
+Esses critérios não podem ser relaxados porque um paper aceita soluções parciais.
 
-Entregue ao final:
+Falha, timeout, resposta inválida ou ausência de evidência não vira conclusão.
 
-1. Inventário e estado encontrado.
-2. O que foi preservado, alterado e dispensou alteração.
-3. Arquivos, manifestos e documentação.
-4. Backups e rollback.
+Separe explicitamente:
+
+- Instalado.
+- Configurado.
+- Confiável.
+- Testado.
+- Observado em execução.
+- Benefício medido.
+
+Um NOOP administrativo, uma fixture, um catálogo, SnapshotOnly, PrepareOnly ou uma suíte verde não prova funcionamento completo no ambiente real.
+
+Ao finalizar, entregue:
+
+1. Resumo do estado encontrado.
+2. Alterações realizadas e componentes preservados.
+3. Arquivos e blocos gerenciados.
+4. Manifesto, backups e rollback.
 5. Verificações executadas e resultados.
-6. Capacidade configurada e capacidade observada.
-7. Integrações operacionais e limitações.
-8. Otimizações em shadow ou ativadas.
-9. Benefícios medidos e dados ainda desconhecidos.
-10. Necessidade de nova sessão e qualquer ação realmente pendente do usuário.
+6. Evidências de delegação e execução real, quando disponíveis.
+7. Capacidade configurada e concorrência observada.
+8. Política dinâmica de modelos e seus limites.
+9. Integrações Jev ativas, propostas e em shadow.
+10. Benefícios medidos, com UNKNOWN onde faltarem dados.
+11. Necessidade real de reiniciar ou abrir nova sessão.
+12. Pendências e bloqueios específicos.
 
-Não declare “tudo funcionando” com base somente em arquivos criados, fixtures, catálogo, testes históricos ou retorno positivo de um launcher.
+Não diga “tudo configurado e funcionando” se parte disso não foi demonstrada.
 
-Execute o trabalho autorizado até o resultado verificável. Quando houver bloqueio real, preserve o que foi feito, explique exatamente o que falta e continue as partes independentes.
+Mantenha o relatório final direto. A complexidade da configuração deve ficar nos artefatos verificáveis e no contrato, sem ser repetida em toda interação futura.
